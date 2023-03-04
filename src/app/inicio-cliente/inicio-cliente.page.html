@@ -1,0 +1,100 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+  <ion-item lines="none">
+    <ion-buttons slot="start">
+      <ion-menu-button  menu="first" color="dark"></ion-menu-button>
+    </ion-buttons>
+    <ion-label>
+      <h2>Sweet & Salty</h2>
+    </ion-label>
+    <ion-buttons slot="end">
+      <button ion-button icon-only  (click)="servicio.irA('/carrito')" class="header-btn-cart" style="background-color: #f8f8fa;">
+        <ion-icon name="fast-food-outline" style="zoom:2.0;color: black;"></ion-icon>
+        <ion-badge class="carts" item-right color="danger">{{pedidolocal!= null ? pedidolocal.length : 0}}</ion-badge>
+      </button>
+    </ion-buttons>
+  </ion-item>
+</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<div class="ion-padding wrapper">
+
+  <ion-searchbar placeholder="Buscar..." animated="true"></ion-searchbar>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-align-items-baseline">
+      <ion-col size="6">
+        <h4 class="title">
+          Categorias
+        </h4>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  </div>
+
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12">
+          <ion-slides [options]="categories">
+            
+            <ion-slide *ngFor="let categoria of categorias">
+              <ion-card class="category" [color]="categoria.color" (click)="selectCategoria(categoria)">
+                <ion-card-header class="ion-text-center">
+                  <ion-icon [src]="categoria.icon"></ion-icon>
+                  <ion-card-title>{{categoria.nombre}}</ion-card-title>
+                </ion-card-header>
+              </ion-card>
+            </ion-slide>    
+            </ion-slides>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="ion-padding-horizontal wrapper">
+  
+      <ion-grid class="ion-no-padding">
+        <ion-row class="ion-align-items-baseline">
+          <ion-col size="6">
+            <h4 class="title">
+              Menu
+            </h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      </div>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides [options]="options">
+
+          <ion-slide *ngFor="let producto of productos; let i = index">
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img [src]="producto.imagen"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">{{producto.nombre}}</ion-card-title>
+                <ion-card-subtitle>{{producto.descripcion}}</ion-card-subtitle>        
+                <ion-item>
+                  <ion-badge slot="start" color="success">{{producto.precio | currency}}</ion-badge>                
+                  <ion-button color="warning" (click)="remove(producto, i)"><ion-icon name="remove-outline"></ion-icon></ion-button> 
+                  <ion-input type="number" inputMode="numeric"  [(ngModel)]="producto.cantidad" min="1" max="10" disabled></ion-input>
+                  <ion-button color="warning" (click)="add(producto, i)"><ion-icon name="add-outline"></ion-icon></ion-button>       
+                </ion-item>      
+                <ion-item><ion-button fill="outline" color="warning" slot="end" (click)="addProducto(producto, i)">Agregar</ion-button>  </ion-item>    
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

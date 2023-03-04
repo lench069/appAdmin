@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="pedidos"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">{{id == 0 ? 'Nuevo' : 'Editar'}} pedido {{id == 0 ? '' : id}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="Guardar()">
+        <ion-icon name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Cliente</ion-label>
+      <ion-select placeholder="Seleccionar" [(ngModel)]="cliente_id" [disabled]="id != 0" okText="Seleccionar" cancelText="Cancelar">
+        <ion-select-option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Atendido por:</ion-label>
+      <ion-select placeholder="Seleccionar" [(ngModel)]="usuario_id" okText="Seleccionar" cancelText="Cancelar">
+        <ion-select-option [value]="usuario.id" *ngFor="let usuario of usuarios">{{usuario.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Fecha</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY - hh:mm" placeholder="Seleccionar fecha" [disabled]="id != 0" cancelText="Cancelar" doneText="Seleccionar" [(ngModel)]="fecha"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked"># Mesa</ion-label>
+      <ion-input [(ngModel)]="mesa" type="number" disabled></ion-input>
+    </ion-item>
+    <ion-item *ngIf="id != 0">
+      <ion-label position="stacked">Estado</ion-label>
+      <ion-select placeholder="Seleccionar" [(ngModel)]="estado" okText="Seleccionar" cancelText="Cancelar">
+        <ion-select-option [value]="est.id" *ngFor="let est of estados">{{est.texto}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="id != 0">
+      <ion-label position="stacked">Productos</ion-label>
+      <ion-select placeholder="Seleccionar" [(ngModel)]="_producto" okText="Seleccionar" cancelText="Cancelar" (ionChange)="Prod_Seleccionado()">
+        <ion-select-option [value]="producto" *ngFor="let producto of productos">{{producto.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-list-header color="danger">
+      Detalle productos
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let _prod of productos_listado" #ionItemSliding>
+      <ion-item>
+        <ion-label text-wrap>
+          <h3>{{_prod.nombre|uppercase}}</h3>
+          <p><b>Precio:</b> ${{_prod.precio|number}}</p>
+        </ion-label>
+        <ion-input slot="end" [(ngModel)]="_prod.cantidad" (ionChange)="Mod_Producto(_prod)" type="number"></ion-input>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="Borrar_Producto(_prod, ionItemSliding)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-list-header color="success">
+      <ion-grid>
+        <ion-row>
+          <ion-col><strong>Subtotal: </strong>{{subtotal|currency}}</ion-col>
+          <ion-col><strong>Iva: </strong>{{iva|currency}}</ion-col>
+          <ion-col><strong>Total: </strong>{{total|currency}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list-header>
+  </ion-list>
+</ion-content>

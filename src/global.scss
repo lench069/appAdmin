@@ -24,3 +24,92 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: "regular";
+    src: url(assets/fonts/Roboto-Regular.ttf);
+  }
+  @font-face {
+    font-family: "medium";
+    src: url(assets/fonts/Roboto-Medium.ttf);
+  }
+  @font-face {
+    font-family: "bold";
+    src: url(assets/fonts/Roboto-Bold.ttf);
+  }
+  
+
+ion-header {
+    ion-toolbar {
+      --border-style: 0px;
+      ion-title {
+        font-family: "bold";
+        color: black;
+      }
+    }
+  }
+  
+  ion-item {
+    ion-input {
+      font-family: "regular";
+    }
+    ion-label {
+      font-family: "regular";
+    }
+    ion-textarea {
+      font-family: "regular";
+    }
+  }
+  
+  .content_button {
+    height: 50px;
+    --background: linear-gradient(#ffa124, #ff7c31);
+    --border-radius: 10px;
+    font-family: "bold";
+    letter-spacing: 1px;
+  }
+  
+  ion-buttons {
+    ion-button {
+      font-family: "regular";
+    }
+  }
+  
+  .heading {
+    font-size: 20px;
+    display: block;
+    margin: 10px 0px;
+    font-family: "bold";
+  }
+  .sub_heading {
+    font-size: 16px;
+    display: block;
+    margin: 10px 0px;
+    font-family: "medium";
+  }
+  .small_heading {
+    font-size: 13px;
+    display: block;
+    margin: 10px 0px;
+    font-family: "regular";
+  }
+  
+  ion-modal.custom_modal {
+    --border-radius: 25px 25px 0px 0px;
+    .modal-wrapper {
+      width: 100% !important;
+    }
+    &.bottom {
+      align-items: flex-end !important;
+    }
+    --height: 85vh;
+    align-items: flex-end;
+  }
+  
+  ion-footer {
+    ion-toolbar {
+      ion-title {
+        font-family: "bold";
+      }
+    }
+  }

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="inicio-cliente"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pedidos</ion-title>
+    <ion-buttons slot="end">
+      <!--<ion-button (click)="servicio.irA('/pedido/0')">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>-->
+      <ion-button (click)="Cargar_Pedidos()">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let pedido of pedidos" #ionItemSliding>
+      <ion-item>
+        <ion-label text-wrap>
+          <h2>{{pedido.cliente}}</h2>
+          <small>Cant. Productos: {{pedido.n_productos}}</small>
+          <br/>
+          <small>Atendido por: {{pedido.vendedor}}</small>
+          <p>Total: {{pedido.total|currency}}</p>
+        </ion-label>
+        <ion-badge slot="end" color="warning" *ngIf="pedido.estado == 0">Creado</ion-badge>
+        <ion-badge slot="end" color="primary" *ngIf="pedido.estado == 1">Procesado</ion-badge>
+        <ion-badge slot="end" color="success" *ngIf="pedido.estado == 2">Finalizado</ion-badge>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>

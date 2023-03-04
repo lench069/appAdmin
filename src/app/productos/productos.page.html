@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="inicio"></ion-back-button>
+    </ion-buttons> 
+    <ion-title>Productos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="servicio.irA('/producto/0')">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="Cargar_Productos()">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar color="success" debounce="500" (ionChange)="Cargar_Productos()" [(ngModel)]="texto" placeholder="Buscar..."></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let producto of productos" #ionItemSliding>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img [src]='producto.imagen' />
+        </ion-thumbnail>
+        <ion-label text-wrap>
+          <h2>{{producto.nombre}}</h2>
+          <p>Stock: {{producto.stock}}</p>
+          <p>Precio: {{producto.precio|number}}</p>
+        </ion-label>
+        <ion-badge slot="end" color="danger">{{producto.codigo}}</ion-badge>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="warning" (click)="Editar(producto, ionItemSliding)">Editar</ion-item-option>
+        <ion-item-option color="danger" (click)="Borrar(producto, ionItemSliding)">Eliminar</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

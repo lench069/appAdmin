@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-back-button text="" defaultHref="start" (click)="servicio.irA('/start')"></ion-back-button>
+          </ion-buttons>
+        <ion-title>Sweet & Salty</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-card color="primary" (click)="servicio.irA('/clientes')">
+                    <ion-card-content>
+                        <ion-icon name="people-outline"></ion-icon>
+                    </ion-card-content>
+                    <ion-card-header>
+                        <ion-card-title>Clientes</ion-card-title>
+                        <ion-card-subtitle>({{clientes}})</ion-card-subtitle>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+            <ion-col>
+                <ion-card color="success" (click)="servicio.irA('/productos')">
+                    <ion-card-content>
+                        <ion-icon name="pricetags-outline"></ion-icon>
+                    </ion-card-content>
+                    <ion-card-header>
+                        <ion-card-title>Productos</ion-card-title>
+                        <ion-card-subtitle>({{productos}})</ion-card-subtitle>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-card color="warning" (click)="servicio.irA('/pedidos')">
+                    <ion-card-content>
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </ion-card-content>
+                    <ion-card-header>
+                        <ion-card-title>Pedidos</ion-card-title>
+                        <ion-card-subtitle>({{pedidos}})</ion-card-subtitle>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+            <ion-col>
+                <ion-card color="dark" (click)="servicio.irA('/usuarios')">
+                    <ion-card-content>
+                        <ion-icon name="people-circle-outline"></ion-icon>
+                    </ion-card-content>
+                    <ion-card-header>
+                        <ion-card-title>Usuarios</ion-card-title>
+                        <ion-card-subtitle>({{usuarios}})</ion-card-subtitle>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-card color="danger" (click)="servicio.irA('/reports')">
+                    <ion-card-content>
+                        <ion-icon name="clipboard-outline"></ion-icon>
+                    </ion-card-content>
+                    <ion-card-header>
+                        <ion-card-title>Reportes</ion-card-title>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+            </ion-row>
+    </ion-grid>   
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      
+    </ion-toolbar>
+  </ion-footer>

@@ -1,7 +1,7 @@
 {
-  "name": "admin",
+  "name": "InventarioApp",
   "integrations": {
-    "capacitor": {}
+    "cordova": {}
   },
   "type": "angular"
 }

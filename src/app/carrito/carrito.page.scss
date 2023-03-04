@@ -1,0 +1,251 @@
+ion-item {
+    --background: rgba(248, 248, 250, .96);
+  
+    h2 {
+      font-weight: bold;
+      font-size: 18px;
+      padding-top: 8px;
+    }
+  
+  }
+  
+  ion-content {
+    --background: #f8f8fa;
+  }
+  
+  ion-searchbar {
+    --box-shadow: none;
+    --border-radius: 12px;
+  }
+  
+  .more {
+    font-size: 12px;
+    color: #FB4E4E;
+  }
+  
+  .title {
+    font-size: 16px;
+  }
+  
+  .card {
+    margin: 0;
+    margin-right: 50px;
+    width: 80%;
+    box-shadow: none;
+    border-radius: 14px;
+  }
+  
+  
+  .category {
+    width: 100%;
+    box-shadow: none;
+    border-radius: 14px;
+  }
+  
+  
+  ion-card-content {
+    .img-wrapper {
+      border-radius: 14px;
+      height: 200px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+  
+    ion-icon {
+      color: #ffff;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  
+    ion-input {
+      text-align: center;
+    }
+  
+    ion-card-subtitle:last-of-type {
+      padding-top:6px;
+    }
+  
+  }
+  
+  ion-card-header {
+    ion-icon {
+      font-size: 60px;
+    }
+  
+    ion-card-title {
+      font-size: 22px;
+      font-weight: bolder;
+    }
+  }
+  
+  .wrapper {
+    padding-bottom: 0;
+  }
+  
+  ion-badge {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .header-btn-cart {
+    margin: 0 0px!important;
+  }
+  .carts {
+    position: absolute;
+    top: -3px;
+    right: 25px;
+    border-radius: 50%;
+    height: 19px;
+    width: 20px;
+  }
+  
+  ion-badge {
+    display: inline-block;
+    font-size: 11px;
+    padding-top: 5px;
+    padding-left: 7px;
+  }
+  
+  
+
+    .bg {
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     }
+     .price-details {
+       display: flex;
+       width: 97%;
+     }
+     h4 {
+       font-size: 2.2rem;
+       text-align: center;
+       color:white;
+      
+     }
+     .cart-list {
+       background-color: #f8f8fa;
+       margin-bottom: -12px !important;
+       .cart-item {
+         background-color: #f8f8fa;
+         .close-btn {
+           top: 33%;
+           left: -32%;
+           color: gray !important;
+         }
+         img {
+           height: 91px;
+           width: 100%;
+         }
+         .item-name {
+           font-weight: 700;
+           font-size: 17px;
+         }
+         .item-detail {
+           font-size: 13px;
+           line-height: 1.3em;
+           white-space: initial !important;
+   
+         }
+         .item-price {
+           font-weight: 700;
+           color: #32cd32;
+         }
+        
+   
+       }
+     }
+   
+     .calculate {
+       margin: 0 4px;
+       .bill-detail {
+         color: rgb(102, 102, 102) !important;
+         padding: 10px 3px 0px 2px;
+         font-size: 14px;
+         font-weight: 400;
+         span {
+           float: right;
+         }
+       }
+       .cart-total {
+         font-size: 1.2em;
+         padding: 7px 0px;
+         color: #666;
+         span {
+           float: right;
+           font-weight: 700;
+           color: #32cd32
+         }
+       }
+     }
+     .continue-btn {
+       background-color: #32cd32 !important;
+       height: 46px;
+       font-size: 1.8rem;
+       border-radius: 0;
+       margin-top: 1em;
+     }
+     .empty-btn{
+       background-color: #32cd32 !important;
+       margin: 3em auto;
+       display: block;
+     }
+     
+     .count {
+       .item-count {
+         padding: 1.5px 9px;
+         font-size: 18px;
+         font-weight: 700;
+         color: #fff;
+         background-color: gray;
+       }
+       .show-count {
+         background-color: #32cd32 !important;
+       }
+       }
+       ion-icon{
+        color: red;
+        font-size:1.3rem;
+     }
+      
+       .apply-coupon-btn{
+        color: #32cd32;
+        border-color: #32cd32;
+       }
+       .invalid-text{
+         color: red;
+       }
+       .input-coupon
+       {
+           border: 1px solid rgba(0, 0, 0, 0.25);
+           height: 36px;
+           margin-top: 8px;
+       }
+     .select-item
+     {
+       margin-top: 6px;
+       .label
+       {
+         color: #424242!important;
+         font-size: 14px!important;
+       }
+       ion-select
+       {
+         padding-left: 0!important;
+         font-size: 14px!important;  
+   
+       }
+     } 
+     .empty-cart{
+       font-size: 10.2em;
+       display: block;
+       margin: .2em auto 0;
+       color: #32cd32;
+     } 
+     .coupon-applied{
+       color:#32cd32;
+     }
+     p{
+      margin-top: 1px;
+      margin-bottom: 1px;
+     }
+   

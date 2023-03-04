@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+          <ion-back-button text="" defaultHref="start"></ion-back-button>
+        </ion-buttons>
+      <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="fondo" class="vertical-align-content ion-text-center">
+	<ion-grid >
+	  <ion-row>
+		<ion-col class="ion-text-center" size-md="6" size-lg="5" size-xs="12">
+			<div class="logo">
+			  <img src="./assets/imagenes/logo.jpg">
+			</div>
+			<ion-card>
+				<br>
+				<ion-card  class="auth-card ion-margin">
+					<ion-item>
+					  <ion-label position="floating">Cedula</ion-label>
+					  <ion-input type="text" [(ngModel)]="cedula" ></ion-input>
+					</ion-item>
+					<br>
+					<ion-item>
+					  <ion-label position="floating">Nombre</ion-label>
+					  <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+					</ion-item>
+          <ion-item>
+					  <ion-label position="floating">Telefono</ion-label>
+					  <ion-input type="text" [(ngModel)]="telefono"></ion-input>
+					</ion-item>
+          <ion-item>
+					  <ion-label position="floating">Correo</ion-label>
+					  <ion-input type="email" [(ngModel)]="correo"></ion-input>
+					</ion-item>
+          <ion-item>
+					  <ion-label position="floating">Direccion</ion-label>
+					  <ion-input type="text" [(ngModel)]="direccion"></ion-input>
+					</ion-item>
+				  </ion-card>
+				  <br>
+				  <ion-button expand="block" color="warning" (click)="prosesLogin()" class="ion-margin-start ion-margin-end ion-margin-bottom" >
+					<b>Registrar</b> 
+				  </ion-button>
+				  <span class="ion-margin"></span>
+				  <span class="ion-margin"></span>		 
+				  <br>
+			</ion-card>
+			
+		</ion-col>
+	  </ion-row>
+	</ion-grid>
+</ion-content>

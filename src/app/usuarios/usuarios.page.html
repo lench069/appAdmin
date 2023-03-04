@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Usuarios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="servicio.irA('/usuario/0')">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="Cargar_Usuarios()">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar color="dark" debounce="500" (ionChange)="Cargar_Usuarios()" [(ngModel)]="texto" placeholder="Buscar..."></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let usuario of usuarios" #ionItemSliding>
+      <ion-item>
+        <ion-label text-wrap>
+          <h2>{{usuario.nombre}}</h2>
+          <p>Tel.:{{usuario.telefono}}</p>
+          <small>Email: {{usuario.correo}}</small>
+        </ion-label>
+        <ion-badge slot="end" color="success">{{usuario.id}}</ion-badge>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="warning" (click)="Editar(usuario, ionItemSliding)">Editar</ion-item-option>
+        <ion-item-option color="danger" (click)="Borrar(usuario, ionItemSliding)">Eliminar</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

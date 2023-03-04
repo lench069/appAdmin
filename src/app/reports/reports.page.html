@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-grid class="ion-text-center">
+    
+    <ion-row class="ion-margin">
+      <ion-col>
+        <ion-title>
+          <ion-text >
+            Reporte de ventas
+          </ion-text>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-segment  [(ngModel)]="segment" >
+      <ion-segment-button value="default" (click)="selectDefault()">
+        <ion-label>Hoy</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="rango" (click)="selectFechas()">
+        <ion-label>Rango</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+   
+    <ion-list *ngIf="segment == 'rango'">
+      <ion-item>
+        <ion-label position="stacked">Desde: </ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Seleccionar fecha" cancelText="Cancelar" doneText="Seleccionar" [(ngModel)]="fecha_ini" ></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Hasta: </ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Seleccionar fecha" cancelText="Cancelar" doneText="Seleccionar" [(ngModel)]="fecha_fin" ></ion-datetime>
+      </ion-item>
+      <ion-button (click)="rangoFechas()" expand="block" color="warning" shape="round">
+        Buscar
+      </ion-button>
+    </ion-list>
+<br>
+    <ion-row class="header-row" *ngIf="pedidos.length > 0">
+
+      <ion-col>
+        <ion-text>Fecha</ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>Cliente</ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>Pago</ion-text>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row *ngFor="let pedido of pedidos">
+      <ion-col>
+        <ion-text>
+            {{pedido.fecha}}
+        </ion-text>
+      </ion-col>
+
+        <ion-col>
+          <ion-text>
+            {{pedido.nombre}}
+          </ion-text>
+        </ion-col>
+  
+        <ion-col>
+          <ion-text>
+            {{pedido.total|currency}}
+          </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-list-header color="success" *ngIf="pedidos.length > 0">
+      <ion-grid>
+        <ion-row>
+          <ion-col><strong></strong></ion-col>
+          <ion-col><strong></strong></ion-col>
+          <ion-col><strong>Total: </strong>{{totalT|currency}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list-header>
+    <p *ngIf="pedidos.length == 0">No existen Pedidos</p>
+  </ion-grid>
+</ion-content>

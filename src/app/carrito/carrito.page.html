@@ -1,0 +1,82 @@
+<ion-header class="ion-no-border">
+  <ion-item lines="none">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="inicio-cliente"></ion-back-button>
+    </ion-buttons>
+    <ion-label>
+      <h2>Resumen de pedido</h2>
+    </ion-label>
+  </ion-item>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="page-cart">
+
+  <div *ngIf="!flag">
+    <ion-row>
+      <ion-icon class="empty-cart" name="cart"></ion-icon>
+    </ion-row>
+    <h4 style="background-color: #32cd32;">No tienes items seleccionados</h4>
+  </div>
+
+  <ion-list class="cart-list" *ngFor="let pedido of pedidos">
+    <!-- item-list -->
+    <ion-item class="cart-item">
+      <!-- item -->
+      <ion-row>
+
+        <ion-col size="12">
+          <!-- col-for item-image and details -->
+          <ion-row>
+            <ion-col size="5">
+              <!-- item-image -->
+              <img src={{pedido.imagen}} alt="">
+            </ion-col>
+            <ion-col size="7">
+              <p class="item-name" text-wrap>{{pedido.nombre}}</p>
+              <p class="item-detail" text-wrap>Cantidad: {{pedido.cantidad}}</p>
+              <p class="item-detail">Precio: {{pedido.precio | currency}}</p>
+              <ion-row class="count-row">
+                <!-- row-for count item -->
+                <ion-col size="10">
+                  <div class="count">
+                    <span class="item-count" (click)="remove(pedido, i)">
+                      -
+                    </span>
+                    <span class="item-count show-count"> {{pedido.cantidad}}
+                    </span>
+                    <span class="item-count" (click)="add(pedido, i)">
+                      +
+                    </span>
+                  </div>
+
+                </ion-col>
+                <ion-col size="2">
+                  <!-- col-cancel  button -->
+                  <ion-icon name="trash" (click)="deleteItem(pedido, i)">
+                  </ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+  <ion-row class="price-details" *ngIf="flag">
+    <ion-col col-12 class="calculate">
+      <p class="bill-detail">Subtotal
+        <span> {{subTotal | currency}}</span>
+      </p>     
+      <p class="bill-detail">Iva (12%)
+        <span> {{iva | currency}}</span>
+      </p>
+      <hr>       
+      <p class="cart-total">
+        <strong>Order Total </strong>
+        <span class="price"> {{Total | currency}}</span>
+      </p>
+
+    </ion-col>
+  </ion-row>
+  <ion-button expand="block" color="success" *ngIf="flag" (click)="pedir()"><strong>Pedir</strong></ion-button>
+</ion-content>
