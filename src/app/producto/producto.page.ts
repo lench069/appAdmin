@@ -115,9 +115,10 @@ export class ProductoPage implements OnInit {
   Capturar_Foto() {
 
     this.camara.getPicture({
-      quality: 60,
+      quality: 100,
       targetHeight: 800,
       targetWidth: 800,
+      correctOrientation:true,
       destinationType: this.camara.DestinationType.DATA_URL,
       encodingType: this.camara.EncodingType.JPEG,
       mediaType: this.camara.MediaType.PICTURE

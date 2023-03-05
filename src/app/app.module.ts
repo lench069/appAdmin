@@ -14,7 +14,6 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { Push } from '@ionic-native/push/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { IonicStorageModule } from '@ionic/storage-angular';
-import { Device } from '@awesome-cordova-plugins/device/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +27,6 @@ import { Device } from '@awesome-cordova-plugins/device/ngx';
   ],
   providers: [
     StatusBar,
-    Device,
     SplashScreen,
     Camera,
     Push,

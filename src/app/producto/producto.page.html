@@ -52,7 +52,9 @@
       </ion-button>
       <ion-label>
         <h3>Foto</h3>
-        <img *ngIf="imagen != null" [src]="imagen" />
+        <div class="featured_img" *ngIf="imagen != null">
+          <img  [src]="imagen" />
+        </div>
       </ion-label>
     </ion-item>
   </ion-list>
