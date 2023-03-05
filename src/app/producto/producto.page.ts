@@ -127,5 +127,20 @@ export class ProductoPage implements OnInit {
     }, (err) => {
       this.servicio.Mensaje('No capturó ninguna imagen.', 'danger');
     });
+ 
   }
+ 
+  gallery_Foto() {
+    this.camara.getPicture({
+      sourceType: this.camara.PictureSourceType.SAVEDPHOTOALBUM,
+      destinationType: this.camara.DestinationType.DATA_URL,
+      encodingType: this.camara.EncodingType.JPEG
+    }).then((res) => {
+      console.log(res);
+      this.imagen = 'data:image/jpeg;base64,' + res;
+    }).catch(e => {
+      console.log(e);
+    })
+  }
+
 }
