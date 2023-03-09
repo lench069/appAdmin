@@ -46,15 +46,30 @@ export class ServiciosService {
       texto: _texto
     }));
   }
+  
+  Categoria_Listado(_texto: string = '') {
+    return this.http.post(this.URL_API + 'listado-categorias', this.objectToFormData({
+      texto: _texto
+    }));
+  }
 
   Producto_Borrar(_id: number) {
     return this.http.post(this.URL_API + 'eliminar-producto', this.objectToFormData({
       producto_id: _id
     }));
   }
+  Categoria_Borrar(_id: number) {
+    return this.http.post(this.URL_API + 'eliminar-categoria', this.objectToFormData({
+      categoria_id: _id
+    }));
+  }
 
   Producto_Consulta(_id: number) {
     return this.http.get(this.URL_API + 'consultar-producto/' + _id);
+  }
+
+  Categoria_Consulta(_id: number) {
+    return this.http.get(this.URL_API + 'consultar-categoria/' + _id);
   }
 
   Buscar_Productos_Categoria(_id: number) {
@@ -72,6 +87,15 @@ export class ServiciosService {
       activo: data.activo,
       imagen: data.imagen,
       id_categoria: data.id_categoria
+    }));
+  }
+
+  Categoria_Guardar(data: any) {
+    return this.http.post(this.URL_API + (data.id == 0 ? 'crear-categoria' : 'actualizar-categoria/' + data.id), this.objectToFormData({
+      id: data.id,
+      nombre: data.nombre,
+      descripcion: data.descripcion,
+      imagen: data.imagen
     }));
   }
   /* Fin: Productos */

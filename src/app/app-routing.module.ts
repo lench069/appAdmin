@@ -70,6 +70,14 @@ const routes: Routes = [
   {
     path: 'reports',
     loadChildren: () => import('./reports/reports.module').then( m => m.ReportsPageModule)
+  },
+  {
+    path: 'categorias',
+    loadChildren: () => import('./categorias/categorias.module').then( m => m.CategoriasPageModule)
+  },
+  {
+    path: 'categoria/:categoriaId',
+    loadChildren: () => import('./categoria/categoria.module').then( m => m.CategoriaPageModule)
   }
 ];
 

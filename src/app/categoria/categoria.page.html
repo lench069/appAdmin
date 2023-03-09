@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button text="" defaultHref="productos"></ion-back-button>
     </ion-buttons>
-    <ion-title size="small">{{id == 0 ? 'Nuevo' : 'Editar'}} producto {{id == 0 ? '' : id}}</ion-title>
+    <ion-title size="small">{{id == 0 ? 'Nueva' : 'Editar'}} categoria {{id == 0 ? '' : id}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="Guardar()">
         <ion-icon name="save"></ion-icon>
@@ -15,36 +15,12 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-label position="stacked">Código</ion-label>
-      <ion-input [(ngModel)]="codigo"></ion-input>
-    </ion-item>
-    <ion-item>
       <ion-label position="stacked">Nombre</ion-label>
       <ion-input [(ngModel)]="nombre"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Descripcion</ion-label>
       <ion-input [(ngModel)]="descripcion"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Categoria</ion-label>
-      <ion-select class="custom-options" interface="popover" [(ngModel)]="id_categoria"  placeholder='Seleccione..'>
-        <ion-select-option *ngFor="let categoria of categorias" value="{{ categoria.id}}">
-            {{ categoria.titulo }}
-        </ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Stock</ion-label>
-      <ion-input type="number" [(ngModel)]="stock"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Precio</ion-label>
-      <ion-input type="number" [(ngModel)]="precio"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Activo</ion-label>
-      <ion-toggle slot="end" [(ngModel)]="activo"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-button slot="start" fill="outline" (click)="Capturar_Foto()">

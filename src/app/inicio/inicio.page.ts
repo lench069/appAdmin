@@ -45,9 +45,15 @@ export class InicioPage implements OnInit {
     {
         name : 'Reportes',
         img : 'assets/imgs/reporte.png',
-        color: '#f34845',
+        color: '#41d07a',
         route : 'reportes'
     },
+    {
+      name : 'Categorias',
+      img : 'assets/imgs/categorias.png',
+      color: '#ff7c31',
+      route : 'categorias'
+  },
     {
         name : 'Salir',
         img : 'assets/imgs/salir.png',
@@ -104,6 +110,9 @@ export class InicioPage implements OnInit {
     }
     if(val == 'salir') {
       this.servicio.irA('/login');
+    }
+    if(val == 'categorias') {
+      this.servicio.irA('/categorias');
     }
 }
 
