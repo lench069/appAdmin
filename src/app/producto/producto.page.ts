@@ -46,6 +46,10 @@ export class ProductoPage implements OnInit {
             this.nombre = data.info.item.nombre;
             this.stock = data.info.item.stock;
             this.precio = data.info.item.precio;
+            this.imagen = data.info.item.imagen;
+            this.descripcion = data.info.item.descripcion;
+            this.id_categoria = data.info.item.categoria;
+            console.log(this.id_categoria);
           } else {
             this.servicio.Mensaje('El producto que intenta consultar no existe.', 'danger');
             this.servicio.irA('/productos');
