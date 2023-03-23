@@ -9,8 +9,8 @@ import { Push, PushObject } from '@ionic-native/push/ngx';
 })
 export class ServiciosService {
 
-  private URL_API: string = 'http://192.168.100.94/appBackEnd/';
-  //private URL_API: string = 'http://riobytes.com/pedidosApp-back/';
+   private URL_API: string = 'http://192.168.100.94/appBackEnd/';
+  //private URL_API: string = 'http://riobytes.com/appBackEnd/';
 
   constructor(
     private router: Router,
