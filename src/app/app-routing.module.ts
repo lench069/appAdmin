@@ -78,6 +78,10 @@ const routes: Routes = [
   {
     path: 'categoria/:categoriaId',
     loadChildren: () => import('./categoria/categoria.module').then( m => m.CategoriaPageModule)
+  },
+  {
+    path: 'olvide-pass',
+    loadChildren: () => import('./olvide-pass/olvide-pass.module').then( m => m.OlvidePassPageModule)
   }
 ];
 

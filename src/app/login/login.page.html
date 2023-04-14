@@ -10,11 +10,11 @@
 	
 	  <div class="main_div">
 		<ion-item lines="none">
-		  <ion-input type="text" placeholder="Email" [(ngModel)]="username" ></ion-input>
+		  <ion-input type="text" placeholder="Usuario" [(ngModel)]="username" ></ion-input>
 		</ion-item>
 		<ion-item lines="none">
-		  <ion-input type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
-		  <ion-icon slot="end" name="eye" color="medium"></ion-icon>
+		  <ion-input [type]="type" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
+		  <ion-icon slot="end" [name]="nameIcon" color="medium" (click)="showPass()"></ion-icon>
 		</ion-item>
 	
 		<div class="btn">
@@ -28,10 +28,6 @@
 		<ion-button class="content_button" (click)="prosesLogin()" expand="block">
 		  Ingresar
 		</ion-button>
-	
-		<div class="title">
-		  <ion-label class="sub_heading">No tienes cuenta? <span (click)="singup()">Crea una</span></ion-label>
-		</div>
 	  </div>
 	</div>
    

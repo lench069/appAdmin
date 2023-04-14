@@ -9,7 +9,7 @@ import { Push, PushObject } from '@ionic-native/push/ngx';
 })
 export class ServiciosService {
 
-   private URL_API: string = 'http://192.168.100.94/appBackEnd/';
+   private URL_API: string = 'http://localhost/appBackEnd/';
   //private URL_API: string = 'http://riobytes.com/appBackEnd/';
 
   constructor(
@@ -316,6 +316,16 @@ export class ServiciosService {
   Categorias_Listado() {
     return this.http.post(this.URL_API + 'listado-categoria', this.objectToFormData({
     }));
+  }
+
+  olvideContrasenia(data:any) {
+    console.log(data);
+    return this.http.post(
+      this.URL_API + 'olvide-contrasenia', 
+      this.objectToFormData({
+        correo: data.correo,
+      }) 
+      );
   }
   
 }

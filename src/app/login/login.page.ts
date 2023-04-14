@@ -13,6 +13,8 @@ export class LoginPage implements OnInit {
 
   username: string = '';
   password: string = '';
+  public type:string='password';
+  public nameIcon:string='eye';
 
   constructor(
     private router: Router,
@@ -63,5 +65,21 @@ export class LoginPage implements OnInit {
 
     }
 
+  }
+  showPass()
+  {
+    if(this.type == 'password')
+    {
+      this.type = 'text';
+      this.nameIcon = "eye-off-outline";
+    }else{
+      this.type = 'password';
+      this.nameIcon = "eye";
+    }
+    return this.type;
+  }
+
+  onForgot(){
+    this.servicio.irA('/olvide-pass');
   }
 }

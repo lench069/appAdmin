@@ -1,0 +1,23 @@
+
+<ion-content class="ion-padding">
+
+	<div class="padre-transform">
+  
+	  <div class="title">
+		<ion-label class="heading">Recupere su contraseña!</ion-label>
+		<ion-label class="sub_heading">Ingrese su email.</ion-label>
+	  </div>
+	
+	  <div class="main_div">
+		<ion-item lines="none">
+		  <ion-input type="text" placeholder="Email" [(ngModel)]="pass" ></ion-input>
+		</ion-item>
+		
+		<ion-button class="content_button" (click)="olvidePass()" expand="block">
+		  Enviar
+		</ion-button>
+	  </div>
+	</div>
+   
+  </ion-content>
+  

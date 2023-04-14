@@ -31,6 +31,12 @@ export class InicioPage implements OnInit {
       route : 'usuarios'
     },
     {
+      name : 'Categorias',
+      img : 'assets/imgs/categorias.png',
+      color: '#ff7c31',
+      route : 'categorias'
+  },
+    {
         name : 'Productos',
         img : 'assets/imgs/pedidos.png',
         color: '#46d2ff',
@@ -48,12 +54,6 @@ export class InicioPage implements OnInit {
         color: '#41d07a',
         route : 'reportes'
     },
-    {
-      name : 'Categorias',
-      img : 'assets/imgs/categorias.png',
-      color: '#ff7c31',
-      route : 'categorias'
-  },
     {
         name : 'Salir',
         img : 'assets/imgs/salir.png',
